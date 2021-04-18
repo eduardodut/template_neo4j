@@ -1,8 +1,5 @@
 # template_neo4j
  
-guia:
-
-https://medium.com/neo4j/nxneo4j-networkx-api-for-neo4j-a-new-chapter-9fc65ddab222
 
 Software necessário:
 
@@ -24,15 +21,23 @@ conda activate template_neo4j
 pip install neo4j, wget, pandas, git+https://github.com/ybaktir/networkx-neo4j
 ```
 
-Download dos datasets:
+Download dos datasets (barabasi):
 
 download_dados.py
 
-Exemplo de carregamento de dados:
+Carregamento de um dataset:
 
 insert.py
-
 
 Exemplo de leitura e aplicação de algoritmos:
 
 read.py
+
+
+Fontes:
+
+https://medium.com/neo4j/nxneo4j-networkx-api-for-neo4j-a-new-chapter-9fc65ddab222
+
+https://neo4j.com/developer/python/
+
+http://networksciencebook.com/translations/en/resources/data.html
