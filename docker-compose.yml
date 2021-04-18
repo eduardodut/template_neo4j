@@ -1,0 +1,28 @@
+version: '2'
+services:
+  neo4j:
+    image: 'neo4j:enterprise'
+    
+    mem_limit: 6g
+    ports:
+      - '7474:7474'
+      - '7687:7687'
+    expose: 
+      - '7687'
+    volumes:
+      - './neo4j/data:/data'
+      - './neo4j/logs:/logs'
+      - './plugins:/plugins'
+    environment:
+      - NEO4J_AUTH=neo4j/test
+      - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
+      - NEO4J_dbms_memory_pagecache_size=1G
+      - NEO4J_dbms_memory_heap_max__size=4G
+      - NEO4JLABS_PLUGINS='["apoc", "bloom", "graph-data-science"]'
+      - NEO4J_dbms_security_procedures_unrestricted=jwt.security.*,gds.*,apoc.*
+      - NEO4J_dbms_security_procedures_whitelist=gds.*,apoc.*
+      - NEO4J_apoc_export_file_enabled=true
+      - NEO4J_apoc_import_file_enabled=true
+      - NEO4J_apoc_import_file_use__neo4j__config=true
+      # https://neo4j.com/docs/operations-manual/current/docker/ref-settings/
+      # https://medium.com/swlh/deployment-of-neo4j-docker-container-with-apoc-and-graph-algorithms-plugins-bf48226928f4
