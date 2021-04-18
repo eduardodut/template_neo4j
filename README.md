@@ -30,4 +30,9 @@ download_dados.py
 
 Exemplo de carregamento de dados:
 
-exemplo.py
+insert.py
+
+
+Exemplo de leitura e aplicação de algoritmos:
+
+read.py

@@ -34,8 +34,10 @@ for resultado in lista_df:
 
 def renomear_nodes(tx):
     tx.run("match (n:Node) set n:Pesquisador remove n:Node")
+
 def renomear_relacoes(tx):
     tx.run("match p=(a:Pesquisador)-[r:CONNECTED]-(b:Pesquisador) merge (a)-[:COLABOROU_COM]-(b) delete r")
+
 with driver.session() as session:
     session.write_transaction(renomear_nodes)
     session.write_transaction(renomear_relacoes)
